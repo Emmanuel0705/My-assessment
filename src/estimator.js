@@ -1,11 +1,5 @@
-const covid19ImpactEstimator = (data) => {
-    let response = {
-        data,
-        impact:{},
-        severeImpact:{}
-    }
-    const {impact,severeImpact} = response
-
+const chalenges = ({data,impact,severeImpact}) => {
+   
     // challenge 1
     impact.currentlyInfected = (data.reportedCases * 1 ) * 10
     severeImpact.currentlyInfected = (data.reportedCases * 1 ) * 50
@@ -30,10 +24,13 @@ const covid19ImpactEstimator = (data) => {
     severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime * data.region
     .avgDailyIncomeInPopulation * data.region.avgDailyIncomeInUSD * data.timeToElapse
 
-return response;
+    return {data,impact,severeImpact}
+
+}
+const covid19ImpactEstimator = (data) => {
+ 
+  return  chalenges({data,impact:{},severeImpact:{}});
     
-
-
 };
 
 export default covid19ImpactEstimator;
