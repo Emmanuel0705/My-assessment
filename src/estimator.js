@@ -42,19 +42,19 @@ const dollarsInFlight = ({ data, impact, severeImpact }) => {
   severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomeInPopulation * data.region.avgDailyIncomeInUSD
   * data.timeToElapse;
-  return { impact, severeImpact }
+  return { impact, severeImpact };
 };
 const chalenges = ({ data, impact, severeImpact }) => {
   // challenge 1
-  currentlyInfected({ data, impact, severeImpact })
-  infectionsByRequestedTime({ data, impact, severeImpact })
+  currentlyInfected({ data, impact, severeImpact });
+  infectionsByRequestedTime({ data, impact, severeImpact });
   // challenge 2
   severeCasesByRequestedTime({ impact, severeImpact })
-  hospitalBedsByRequestedTime({ data, impact, severeImpact })
+  hospitalBedsByRequestedTime({ data, impact, severeImpact });
   // challenge 3
-  casesForICUByRequestedTime({ impact, severeImpact })
-  casesForVentilatorsByRequestedTime({ impact, severeImpact })
-  dollarsInFlight({ data, impact, severeImpact })
+  casesForICUByRequestedTime({ impact, severeImpact });
+  casesForVentilatorsByRequestedTime({ impact, severeImpact });
+  dollarsInFlight({ data, impact, severeImpact });
   return { data, impact, severeImpact };
 };
 
