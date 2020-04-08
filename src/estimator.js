@@ -26,5 +26,5 @@ const chalenges = ({ data, impact, severeImpact }) => {
   * data.timeToElapse;
   return { data, impact, severeImpact };
 };
-const covid19ImpactEstimator = (data) => chalenges({ data, impact: {}, severeImpact: {} });   
+const covid19ImpactEstimator = (data) => chalenges({ data, impact: {}, severeImpact: {} });
 export default covid19ImpactEstimator;
