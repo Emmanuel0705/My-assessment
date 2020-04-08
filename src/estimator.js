@@ -19,7 +19,7 @@ const severeCasesByRequestedTime = ({ impact, severeImpact }) => {
 };
 const hospitalBedsByRequestedTime = ({ data, impact, severeImpact }) => {
   impact.hospitalBedsByRequestedTime = impact.severeCasesByRequestedTime
-  - data.totalHospitalBeds;    
+  - data.totalHospitalBeds;
   severeImpact.hospitalBedsByRequestedTime = severeImpact.severeCasesByRequestedTime
   - data.totalHospitalBeds;
   return { impact, severeImpact };
@@ -31,7 +31,7 @@ const casesForICUByRequestedTime = ({ impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 const casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForVentilatorsByRequestedTime = impact.infectionsByRequestedTime * 0.02;  
+  impact.casesForVentilatorsByRequestedTime = impact.infectionsByRequestedTime * 0.02;
   severeImpact.casesForVentilatorsByRequestedTime = severeImpact.infectionsByRequestedTime * 0.05;
   return { impact, severeImpact };
 };
@@ -49,7 +49,7 @@ const chalenges = ({ data, impact, severeImpact }) => {
   currentlyInfected({ data, impact, severeImpact });
   infectionsByRequestedTime({ data, impact, severeImpact });
   // challenge 2
-  severeCasesByRequestedTime({ impact, severeImpact })
+  severeCasesByRequestedTime({ impact, severeImpact });
   hospitalBedsByRequestedTime({ data, impact, severeImpact });
   // challenge 3
   casesForICUByRequestedTime({ impact, severeImpact });
