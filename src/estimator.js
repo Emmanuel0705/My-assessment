@@ -8,23 +8,23 @@ const chalenges = ({ data, impact, severeImpact }) => {
   * (2 ** (data.timeToElapse / 3));
   // challenge 2
   impact.severeCasesByRequestedTime = impact.infectionsByRequestedTime * 0.15;
-  impact. hospitalBedsByRequestedTime = impact.severeCasesByRequestedTime -
-   data.totalHospitalBeds;
+  impact.hospitalBedsByRequestedTime = impact.severeCasesByRequestedTime
+  - data.totalHospitalBeds;
   severeImpact.severeCasesByRequestedTime = severeImpact.infectionsByRequestedTime * 0.15;
   severeImpact.hospitalBedsByRequestedTime = severeImpact.severeCasesByRequestedTime
-  - data.totalHospitalBeds
+  - data.totalHospitalBeds;
   // challenge 3
   impact.casesForICUByRequestedTime = impact.infectionsByRequestedTime * 0.05;
   impact.casesForVentilatorsByRequestedTime = impact.infectionsByRequestedTime * 0.02;
   severeImpact.casesForICUByRequestedTime = severeImpact.infectionsByRequestedTime * 0.05;
   severeImpact.casesForVentilatorsByRequestedTime = severeImpact.infectionsByRequestedTime * 0.05;
-  impact.dollarsInFlight = (impact.infectionsByRequestedTime *1)
+  impact.dollarsInFlight = (impact.infectionsByRequestedTime * 1)
   * (data.region.avgDailyIncomeInPopulation * 1) * (data.region.avgDailyIncomeInUSD * 1)
-  * (data.timeToElapse *1);
+  * (data.timeToElapse * 1);
   severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomeInPopulation * data.region.avgDailyIncomeInUSD
   * data.timeToElapse;
-  return { data,impact,severeImpact };
+  return { data, impact, severeImpact };
 }
 const covid19ImpactEstimator = (data) => { 
   return  chalenges({ data, impact:{}, severeImpact:{} });    
