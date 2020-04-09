@@ -15,12 +15,12 @@ exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
     data.timeToElapse *= 30;
   } else if (data.periodType === 'weeks') {
     data.timeToElapse *= 7;
-  } else {
+  } else if (data.periodType === 'weeks') {
     data.timeToElapse *= 1;
-  }
-  impact.dollarsInFlight = Math.trunc(((impact.infectionsByRequestedTime * 1)
-  * (data.region.avgDailyIncomePopulation * 1) * (data.region.avgDailyIncomeInUSD * 1))
-  / (data.timeToElapse * 1));
+  } else { data.timeToElapse *= 1; }
+  impact.dollarsInFlight = Math.trunc((impact.infectionsByRequestedTime
+    * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD * 1)
+    / (data.timeToElapse * 1));
   severeImpact.dollarsInFlight = Math.trunc((severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)
   / data.timeToElapse);
