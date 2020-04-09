@@ -1,12 +1,13 @@
 exports.casesForICUByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForICUByRequestedTime = impact.infectionsByRequestedTime * 0.05;
-  severeImpact.casesForICUByRequestedTime = severeImpact.infectionsByRequestedTime * 0.05;
+  impact.casesForICUByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.05);
+  severeImpact.casesForICUByRequestedTime = Math.trunc(severeImpact
+    .infectionsByRequestedTime * 0.05);
   return { impact, severeImpact };
 };
 exports.casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
   impact.casesForVentilatorsByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.02);
   severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(severeImpact
-    .infectionsByRequestedTime * 0.05);
+    .infectionsByRequestedTime * 0.02);
   return { impact, severeImpact };
 };
 exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
