@@ -1,13 +1,13 @@
 exports.casesForICUByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForICUByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.02);
+  impact.casesForICUByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.05);
   severeImpact.casesForICUByRequestedTime = Math.trunc(severeImpact
-    .infectionsByRequestedTime * 0.02);
+    .infectionsByRequestedTime * 0.05);
   return { impact, severeImpact };
 };
 exports.casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForVentilatorsByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.05);
+  impact.casesForVentilatorsByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.02);
   severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(severeImpact
-    .infectionsByRequestedTime * 0.05);
+    .infectionsByRequestedTime * 0.02);
   return { impact, severeImpact };
 };
 exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
@@ -18,11 +18,11 @@ exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
   } else {
     data.timeToElapse *= 1;
   }
-  impact.dollarsInFlight = (impact.infectionsByRequestedTime * 1)
+  impact.dollarsInFlight = Math.trunc((impact.infectionsByRequestedTime * 1)
   * (data.region.avgDailyIncomePopulation * 1) * (data.region.avgDailyIncomeInUSD * 1)
-  * (data.timeToElapse * 1);
-  severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime
+  * (data.timeToElapse * 1));
+  severeImpact.dollarsInFlight = Math.trunc(severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
-  * data.timeToElapse;
+  * data.timeToElapse);
   return { impact, severeImpact };
 };
