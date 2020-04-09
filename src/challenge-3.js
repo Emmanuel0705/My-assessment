@@ -26,6 +26,6 @@ exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
     / Math.trunc(calcluateDays(data.periodType, data.timeToElapse)));
   severeImpact.dollarsInFlight = Math.trunc((severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)
-  / Math.trunc(data.timeToElapse));
+  / Math.trunc(calcluateDays(data.periodType, data.timeToElapse)));
   return { impact, severeImpact };
 };
