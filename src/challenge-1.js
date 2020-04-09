@@ -12,8 +12,8 @@ exports.infectionsByRequestedTime = ({ data, impact, severeImpact }) => {
     data.timeToElapse *= 1;
   }
   impact.infectionsByRequestedTime = Math.trunc((impact.currentlyInfected * 1)
-  * (2 ** (Math.trunc(data.timeToElapse / 3))));
+  * (2 ** (data.timeToElapse / 3)));
   severeImpact.infectionsByRequestedTime = Math.trunc((severeImpact.currentlyInfected * 1)
-  * (2 ** (Math.trunc(data.timeToElapse / 3))));
+  * (2 ** (data.timeToElapse / 3)));
   return { impact, severeImpact };
 };
