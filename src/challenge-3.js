@@ -9,8 +9,13 @@ exports.casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
-  if (data.periodType === 'months') data.timeToElapse *= 30;
-  if (data.periodType === 'weeks') data.timeToElapse *= 7;
+  if (data.periodType === 'months') {
+    data.timeToElapse *= 30;
+  } else if (data.periodType === 'weeks') {
+    data.timeToElapse *= 7;
+  } else {
+    data.timeToElapse *= 1;
+  }
   impact.dollarsInFlight = (impact.infectionsByRequestedTime * 1)
   * (data.region.avgDailyIncomePopulation * 1) * (data.region.avgDailyIncomeInUSD * 1)
   * (data.timeToElapse * 1);
