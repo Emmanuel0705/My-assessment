@@ -17,5 +17,5 @@ exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
   severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
   * data.timeToElapse;
-    return { impact, severeImpact };
+  return { impact, severeImpact };
 };
