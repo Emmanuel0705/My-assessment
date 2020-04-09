@@ -4,9 +4,9 @@ exports.severeCasesByRequestedTime = ({ impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 exports.hospitalBedsByRequestedTime = ({ data, impact, severeImpact }) => {
-  impact.hospitalBedsByRequestedTime = Math.round(0.35 * data.totalHospitalBeds)
-  - impact.severeCasesByRequestedTime;
-  severeImpact.hospitalBedsByRequestedTime = Math.round(0.35 * data.totalHospitalBeds)
-  - severeImpact.severeCasesByRequestedTime;
+  impact.hospitalBedsByRequestedTime = Math.trunc((0.35 * data.totalHospitalBeds)
+  - impact.severeCasesByRequestedTime);
+  severeImpact.hospitalBedsByRequestedTime = Math.trunc((0.35 * data.totalHospitalBeds)
+  - severeImpact.severeCasesByRequestedTime);
   return { impact, severeImpact };
 };
