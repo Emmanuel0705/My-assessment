@@ -1,4 +1,3 @@
-// challenge 2
 exports.severeCasesByRequestedTime = ({ impact, severeImpact }) => {
   impact.severeCasesByRequestedTime = impact.infectionsByRequestedTime * 0.15;
   severeImpact.severeCasesByRequestedTime = severeImpact.infectionsByRequestedTime * 0.15;
@@ -6,8 +5,8 @@ exports.severeCasesByRequestedTime = ({ impact, severeImpact }) => {
 };
 exports.hospitalBedsByRequestedTime = ({ data, impact, severeImpact }) => {
   impact.hospitalBedsByRequestedTime = impact.severeCasesByRequestedTime
-  - data.totalHospitalBeds;
+  - (0.35 * data.totalHospitalBeds);
   severeImpact.hospitalBedsByRequestedTime = severeImpact.severeCasesByRequestedTime
-  - data.totalHospitalBeds;
+  - (0.35 * data.totalHospitalBeds);
   return { impact, severeImpact };
 };
