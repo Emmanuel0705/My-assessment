@@ -4,7 +4,7 @@ exports.currentlyInfected = ({ data, impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 exports.infectionsByRequestedTime = ({ data, impact, severeImpact }) => {
-  if (data.periodType !== 'months' && data.periodType !== 'weeks' && data.periodType !== 'days'){
+  if (data.periodType !== 'months' && data.periodType !== 'weeks' && data.periodType !== 'days') {
     data.timeToElapse *= 1;
   }
   if (data.periodType === 'months') data.timeToElapse *= 30;
