@@ -1,11 +1,11 @@
 exports.casesForICUByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForICUByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.05);
+  impact.casesForICUByRequestedTime = Math.trunc(impact.severeCasesByRequestedTime * 0.15);
   severeImpact.casesForICUByRequestedTime = severeImpact
     .infectionsByRequestedTime * 0.05;
   return { impact, severeImpact };
 };
 exports.casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
-  impact.casesForVentilatorsByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.02);
+  impact.casesForVentilatorsByRequestedTime = Math.trunc(impact.severeCasesByRequestedTime * 0.02);
   severeImpact.casesForVentilatorsByRequestedTime = severeImpact
     .infectionsByRequestedTime * 0.02;
   return { impact, severeImpact };
