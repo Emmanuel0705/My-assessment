@@ -39,12 +39,12 @@ const casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
 };
 const dollarsInFlight = ({ data, impact, severeImpact }) => {
   if (data.periodType === 'months') data.timeToElapse *= 30;
-  if (data.periodType === 'weeks') data.timeToElapsev *= 7;
+  if (data.periodType === 'weeks') data.timeToElapse *= 7;
   impact.dollarsInFlight = (impact.infectionsByRequestedTime * 1)
-  * (data.region.avgDailyIncomeInPopulation * 1) * (data.region.avgDailyIncomeInUSD * 1)
+  * (data.region.avgDailyIncomePopulation * 1) * (data.region.avgDailyIncomeInUSD * 1)
   * (data.timeToElapse * 1);
   severeImpact.dollarsInFlight = severeImpact.infectionsByRequestedTime
-  * data.region.avgDailyIncomeInPopulation * data.region.avgDailyIncomeInUSD
+  * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
   * data.timeToElapse;
   return { impact, severeImpact };
 };
@@ -53,12 +53,12 @@ const chalenges = ({ data, impact, severeImpact }) => {
   currentlyInfected({ data, impact, severeImpact });
   infectionsByRequestedTime({ data, impact, severeImpact });
   // challenge 2
-  severeCasesByRequestedTime({ impact, severeImpact });
-  hospitalBedsByRequestedTime({ data, impact, severeImpact });
+  // severeCasesByRequestedTime({ impact, severeImpact });
+  // hospitalBedsByRequestedTime({ data, impact, severeImpact });
   // challenge 3
-  casesForICUByRequestedTime({ impact, severeImpact });
-  casesForVentilatorsByRequestedTime({ impact, severeImpact });
-  dollarsInFlight({ data, impact, severeImpact });
+  // casesForICUByRequestedTime({ impact, severeImpact });
+  // casesForVentilatorsByRequestedTime({ impact, severeImpact });
+  // dollarsInFlight({ data, impact, severeImpact });
   return { data, impact, severeImpact };
 };
 
