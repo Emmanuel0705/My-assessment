@@ -4,13 +4,16 @@ exports.currentlyInfected = ({ data, impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 exports.infectionsByRequestedTime = ({ data, impact, severeImpact }) => {
-  data.timeToElapse *= 1;
-  if (data.periodType === 'days') data.timeToElapse *= 1;
-  if (data.periodType === 'weeks') data.timeToElapse *= 7;
-  if (data.periodType === 'months') data.timeToElapse *= 30;
+  if (data.periodType === 'months') {
+    data.timeToElapse *= 30
+  } else if (data.periodType === 'weeks') {
+    data.timeToElapse *= 7;
+  } else {
+    data.timeToElapse *= 1;
+  };
   impact.infectionsByRequestedTime = (impact.currentlyInfected * 1)
-  * (2 ** (data.timeToElapse / 3));
+  * (2 ** (Math.trunc(data.timeToElapse / 3)));
   severeImpact.infectionsByRequestedTime = (severeImpact.currentlyInfected * 1)
-  * (2 ** (data.timeToElapse / 3));
+  * (2 ** (Math.trunc(data.timeToElapse / 3)));
   return { impact, severeImpact };
 };
