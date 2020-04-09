@@ -11,16 +11,19 @@ exports.casesForVentilatorsByRequestedTime = ({ impact, severeImpact }) => {
   return { impact, severeImpact };
 };
 exports.dollarsInFlight = ({ data, impact, severeImpact }) => {
-  if (data.periodType === 'months') {
-    data.timeToElapse *= 30;
-  } else if (data.periodType === 'weeks') {
-    data.timeToElapse *= 7;
-  } else {
-    data.timeToElapse *= 1;
-  }
+  const calcluateDays = (periodType, value) => {
+    switch (periodType) {
+      case 'months':
+        return value * 30;
+      case 'weeks':
+        return value * 7;
+      default:
+        return value;
+    }
+  };
   impact.dollarsInFlight = Math.trunc((impact.infectionsByRequestedTime
     * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)
-    / Math.trunc(data.timeToElapse));
+    / Math.trunc(calcluateDays(data.periodType, data.timeToElapse)));
   severeImpact.dollarsInFlight = Math.trunc((severeImpact.infectionsByRequestedTime
   * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)
   / Math.trunc(data.timeToElapse));
