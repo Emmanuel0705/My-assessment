@@ -1,6 +1,5 @@
 
-const chalengeOne = require("./challenge-1") 
-
+const chalengeOne = require('./challenge-1')
 const chalenges = ({ data, impact, severeImpact }) => {
   // challenge 1
   chalengeOne.currentlyInfected({ data, impact, severeImpact });
