@@ -1,6 +1,5 @@
 
 const chalengeOne = require('./challenge-1');
-const chalengeTwo = require("./challenge-2")
 
 const chalenges = ({ data, impact, severeImpact }) => {
   // challenge 1
